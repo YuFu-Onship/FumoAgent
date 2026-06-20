@@ -1,0 +1,23 @@
+[
+  [
+    "月之暗面",
+    "true",
+    "https://api.moonshot.cn/v1/chat/completions",
+    "kimi-k2.5",
+    ""
+  ],
+  [
+    "deepseek_v4_pro",
+    "true",
+    "https://api.deepseek.com/v1/chat/completions",
+    "deepseek-v4-pro",
+    ""
+  ],
+  [
+    "deepseek_v4_flash",
+    "false",
+    "https://api.deepseek.com/v1/chat/completions",
+    "deepseek-v4-flash",
+    ""
+  ]
+]
