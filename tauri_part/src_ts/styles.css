@@ -1,0 +1,273 @@
+/* 全局样式 - 透明背景 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* 主容器 */
+#app {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: transparent;
+
+    box-sizing: border-box;
+
+    border: 2px solid transparent;
+    border-radius: 32px;
+    transition: border-color 0.15s ease;
+}
+#app:hover,
+#app.is-dragging {
+    border-color: rgba(0, 162, 255, 1);
+}
+
+/* Live2D 画布 */
+#canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent;
+    pointer-events: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 调整大小的手柄 */
+#resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    cursor: se-resize;
+    background: transparent;
+    z-index: 1000;
+}
+
+/* 调整大小的手柄悬停效果 */
+#resize-handle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 0 0 0;
+}
+
+/* 调整大小的手柄激活效果 */
+#resize-handle:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 拖动时的光标 */
+body.dragging {
+    cursor: grabbing !important;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Firefox 隐藏滚动条 */
+* {
+    scrollbar-width: none;
+}
+
+/* IE/Edge 隐藏滚动条 */
+* {
+    -ms-overflow-style: none;
+}
+
+/* ===== 菜单浮现相关样式 ===== */
+
+/* 完全隐藏元素 */
+.live2d-hidden {
+    display: none;
+}
+
+/* 透明度为0，不可见 */
+.live2d-opacity-0 {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* 透明度为1，可见 */
+.live2d-opacity-1 {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 过渡动画 - 所有属性 */
+.live2d-transition-all {
+    transition-duration: var(--live2d-duration, 300ms);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 菜单容器 */
+.live2d-menus {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+}
+
+/* 菜单项基础样式 */
+.live2d-menu-item {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 菜单项悬停效果 */
+.live2d-menu-item:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 菜单项激活效果 */
+.live2d-menu-item:active {
+    transform: scale(1);
+}
+
+/* 菜单项中的SVG图标 */
+.live2d-menu-item svg {
+    width: 20px;
+    height: 20px;
+    fill: #333;
+    transition: fill 0.3s;
+}
+
+/* 菜单项悬停时图标颜色 */
+.live2d-menu-item:hover svg {
+    fill: #000;
+}
+
+/* Flex居中辅助类 */
+.live2d-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 固定定位辅助类 */
+.live2d-fixed {
+    position: fixed;
+}
+
+/* 相对定位辅助类 */
+.live2d-relative {
+    position: relative;
+}
+
+/* 拖拽时的样式 */
+.live2d-drag {
+    cursor: grabbing !important;
+}
+
+/* 右侧定位辅助类 */
+.live2d-right {
+    right: 0;
+    left: auto;
+}
+
+/* 抖动动画 */
+@keyframes live2d-shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+.live2d-shake {
+    animation: live2d-shake 0.5s;
+}
+
+/* 消息提示框样式 */
+.live2d-tips {
+    position: absolute;
+    bottom: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* 其他元素容器 */
+.live2d-other {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+/* 包装器样式 */
+.live2d-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* ===== 按钮波纹动画扩展 ===== */
+
+/* 1. 确保容器超出部分隐藏，让波纹困在圆圈内 */
+.live2d-menu-item {
+    position: relative; /* 确保子元素波纹能相对它定位 */
+    overflow: hidden; /* 裁剪超出圆圈的波纹 */
+}
+
+/* 2. 动态生成的波纹 DOM 样式 */
+.live2d-ripple-span {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.15); /* 点击后波纹的颜色（淡淡的黑影） */
+    border-radius: 50%;
+    transform: scale(0);
+    pointer-events: none; /* 防止波纹本身阻挡点击事件 */
+    animation: live2d-click-ripple 1.5s cubic-bezier(0.1, 0.1, 0.1, 1);
+}
+
+@keyframes live2d-click-ripple {
+    to {
+        transform: scale(4); /* 扩散放大 */
+        opacity: 0; /* 渐隐 */
+    }
+}
