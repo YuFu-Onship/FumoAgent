@@ -1,0 +1,26 @@
+{
+  "CurrentVoice": "koishi",
+  "Voice_Preset": [
+    "AquesTalk",
+    "小石",
+    "false",
+    "false",
+    "AquesTalk10",
+    "F1E",
+    "123",
+    "39",
+    "100",
+    "100",
+    "100",
+    "173",
+    ""
+  ],
+  "Voice_Enable": "true",
+  "CurrentModel": "deepseek_v4_flash",
+  "Models": null,
+  "CurrentChar": "Teto",
+  "Language": "Chinese",
+  "Color": "windows",
+  "Darkmode": "true",
+  "Live2DCurModel": "Kimochi-shiki_Kasane_Teto"
+}
